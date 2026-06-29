@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Q3 2026 Commitments - September 1 Deadline</title>
+    <title>Q3 2026 Commitments - September 30 Deadline</title>
     <style>
         * {
             margin: 0;
@@ -286,6 +286,12 @@
             color: var(--info);
         }
 
+        .alert-success {
+            background: rgba(56, 161, 105, 0.1);
+            border-left: 4px solid var(--success);
+            color: var(--success);
+        }
+
         .milestone-card {
             background: var(--bg-card);
             border: 2px solid var(--border-color);
@@ -366,14 +372,15 @@
 <body>
     <div class="container">
         <header>
-            <h1>Q3 2026 Commitments - September 1 Deadline</h1>
-            <p class="subtitle">M5 (LN Tour Onsale) + M6 (Sports Events) + Upgrades + Ticket Perks</p>
+            <h1>Q3 2026 Commitments - September 30 Deadline</h1>
+            <p class="subtitle">M5 (LN Tour Onsale) + M6 (Sports Events) + Upgrades + Ticket Perks + Codeless Unlock</p>
             <div class="meta">
-                <div><strong>Target Date:</strong> September 1, 2026</div>
-                <div><strong>Time Remaining:</strong> 10.5 weeks (75 days)</div>
-                <div><strong>Team Size:</strong> 21 developers</div>
+                <div><strong>Target Date:</strong> September 30, 2026</div>
+                <div><strong>Time Remaining:</strong> 13.9 weeks (97 days)</div>
+                <div><strong>Team Size:</strong> 18 developers (12 GEDP + 6 PAS)</div>
                 <div><strong>Owner:</strong> Kate Kasperski</div>
-                <div><strong>Last Updated:</strong> June 18, 2026</div>
+                <div><strong>Last Updated:</strong> June 25, 2026</div>
+                <div><strong>Scope:</strong> GEDP (12 devs) + PAS (6 devs) epics only</div>
             </div>
         </header>
 
@@ -383,73 +390,106 @@
             <button class="nav-tab" onclick="showTab('m6')">🏀 Milestone 6</button>
             <button class="nav-tab" onclick="showTab('upgrades')">⬆️ Upgrades</button>
             <button class="nav-tab" onclick="showTab('perks')">🎫 Ticket Perks</button>
+            <button class="nav-tab" onclick="showTab('unlock')">🔧 PAS Other Work</button>
             <button class="nav-tab" onclick="showTab('analysis')">📈 Feasibility Analysis</button>
             <button class="nav-tab" onclick="showTab('recommendations')">💡 Recommendations</button>
         </div>
 
         <!-- OVERVIEW TAB -->
         <div id="overview" class="tab-content active">
-            <div class="alert alert-danger" style="margin-bottom: 1.5rem;">
-                <strong>🚨 CRITICAL: SIGNIFICANT CAPACITY GAP</strong><br>
-                With <strong>220.5 engineering weeks available</strong> (21 developers × 10.5 weeks) and approximately <strong>311 weeks of remaining work</strong> across 40 incomplete epics (20 M5 + 15 M6 + 3 Upgrades + 2 Ticket Perks), we are <strong>~41% over capacity</strong>.<br><br>
-                <strong>📊 Current Progress:</strong> M5: 31% complete (9 Done/Sign-off of 29 total), M6: 12% complete (2 Done of 17 total), Upgrades: 0%, Ticket Perks: 0%<br>
-                <strong>⚡ VERDICT: September 1 deadline is NOT FEASIBLE without descoping 91 weeks (~29% of work) or team expansion.</strong>
+            <div class="alert alert-success" style="margin-bottom: 1.5rem; background: rgba(56, 161, 105, 0.15); border-left-color: var(--success);">
+                <strong>✅ CAPACITY: BOTH TEAMS WITHIN CAPACITY WITH 6 PAS DEVS</strong><br>
+                GEDP has massive buffer (50%). PAS with 6 devs has 5.4w buffer.<br><br>
+                <strong>✅ GEDP (12 devs):</strong> 84w work vs 166.8w capacity = <strong>82.8w BUFFER (50%)</strong><br>
+                <strong>✅ PAS (6 devs):</strong> 78w work vs 83.4w capacity = <strong>5.4w BUFFER</strong><br><br>
+                <strong>📊 Current Progress:</strong> M5: 80% of stories complete (12 of 27 epics Done/Sign-off), M6: 13% complete (2 Done of 15 total), Upgrades: In Progress, Ticket Perks: In Progress<br>
+                <strong>✅ VERDICT: GEDP lands early September. PAS with 6 devs lands ~September 26 (4 days early). Descoped PAS-540 (RTB, 9w) and PAS-541 (Codeless Unlock INTL, 9w) to Q4.</strong><br>
+                <strong>Note:</strong> Dashboard shows GEDP and PAS epics only (excludes GEDP-5305 Club Site). M5 80% complete based on story completion.
             </div>
 
-            <!-- Capacity Overview Cards -->
+            <!-- Capacity Overview Cards - GEDP -->
+            <h3 class="section-subtitle" style="margin-bottom: 1rem;">GEDP Team (12 developers)</h3>
             <div class="stats-grid" style="margin-bottom: 1rem;">
                 <div class="stat-card" style="border-left: 4px solid var(--tm-blue);">
-                    <div class="stat-label">Available Engineering Weeks</div>
-                    <div class="stat-value">220.5</div>
-                    <div class="stat-detail">21 developers × 10.5 weeks till 9/1</div>
-                    <div class="stat-detail" style="margin-top: 0.5rem; font-style: italic;">Fixed capacity for the period</div>
+                    <div class="stat-label">GEDP Available Capacity</div>
+                    <div class="stat-value">166.8</div>
+                    <div class="stat-detail">12 developers × 13.9 weeks till 9/30</div>
                 </div>
 
-                <div class="stat-card" style="border-left: 4px solid var(--danger);">
-                    <div class="stat-label">Total Remaining Work</div>
-                    <div class="stat-value" style="color: var(--danger);">~311</div>
-                    <div class="stat-detail">Adjusted weeks for 40 incomplete epics</div>
-                    <div class="stat-detail" style="margin-top: 0.5rem; font-style: italic;">Excludes 11 completed/sign-off epics<br>(20 M5 + 15 M6 + 3 Upgrades + 2 Perks)</div>
+                <div class="stat-card" style="border-left: 4px solid var(--success);">
+                    <div class="stat-label">GEDP Remaining Work</div>
+                    <div class="stat-value" style="color: var(--success);">~84</div>
+                    <div class="stat-detail">25 incomplete GEDP epics (M5 80% complete)</div>
                 </div>
 
-                <div class="stat-card" style="border-left: 4px solid var(--danger);">
-                    <div class="stat-label">Capacity Gap</div>
-                    <div class="stat-value" style="color: var(--danger);">-91</div>
-                    <div class="stat-detail">41% OVERCOMMITTED</div>
-                    <div class="stat-detail" style="margin-top: 0.5rem; font-style: italic;"><strong>Need to descope ~29% of work OR add 9 developers</strong></div>
+                <div class="stat-card" style="border-left: 4px solid var(--success);">
+                    <div class="stat-label">GEDP Capacity Buffer</div>
+                    <div class="stat-value" style="color: var(--success);">+82.8</div>
+                    <div class="stat-detail">WELL WITHIN CAPACITY</div>
+                    <div class="stat-detail" style="margin-top: 0.5rem; font-style: italic;"><strong>M5 80% complete — M6 estimates at ~50% confidence</strong></div>
                 </div>
 
-                <div class="stat-card" style="border-left: 4px solid var(--text-secondary);">
-                    <div class="stat-label">Required Team Size</div>
-                    <div class="stat-value" style="color: var(--text-secondary);">~30</div>
-                    <div class="stat-detail">Developers needed for 9/1 delivery</div>
-                    <div class="stat-detail" style="margin-top: 0.5rem; font-style: italic;">Current: 21 | Shortfall: 9 developers</div>
+                <div class="stat-card" style="border-left: 4px solid var(--success);">
+                    <div class="stat-label">GEDP Required Team</div>
+                    <div class="stat-value" style="color: var(--success);">~6</div>
+                    <div class="stat-detail">Developers needed for 9/30 delivery</div>
+                    <div class="stat-detail" style="margin-top: 0.5rem; font-style: italic;">Current: 12 | Buffer: ~6 devs</div>
+                </div>
+            </div>
+
+            <!-- Capacity Overview Cards - PAS -->
+            <h3 class="section-subtitle" style="margin-bottom: 1rem;">PAS Team (6 developers)</h3>
+            <div class="stats-grid" style="margin-bottom: 1rem;">
+                <div class="stat-card" style="border-left: 4px solid var(--tm-blue);">
+                    <div class="stat-label">PAS Available Capacity</div>
+                    <div class="stat-value">83.4</div>
+                    <div class="stat-detail">6 developers × 13.9 weeks till 9/30</div>
+                </div>
+
+                <div class="stat-card" style="border-left: 4px solid var(--success);">
+                    <div class="stat-label">PAS Remaining Work</div>
+                    <div class="stat-value" style="color: var(--success);">~78</div>
+                    <div class="stat-detail">10 incomplete PAS epics</div>
+                </div>
+
+                <div class="stat-card" style="border-left: 4px solid var(--success);">
+                    <div class="stat-label">PAS Capacity Buffer</div>
+                    <div class="stat-value" style="color: var(--success);">+5.4</div>
+                    <div class="stat-detail">WITHIN CAPACITY</div>
+                    <div class="stat-detail" style="margin-top: 0.5rem; font-style: italic;"><strong>6 developers — lands ~Sept 26 (4 days early)</strong></div>
+                </div>
+
+                <div class="stat-card" style="border-left: 4px solid var(--success);">
+                    <div class="stat-label">PAS Required Team</div>
+                    <div class="stat-value" style="color: var(--success);">~5.6</div>
+                    <div class="stat-detail">Developers needed for 9/30 delivery</div>
+                    <div class="stat-detail" style="margin-top: 0.5rem; font-style: italic;">Current: 5 | With 6: lands ~Sept 26 (4 days early)</div>
                 </div>
             </div>
 
             <!-- Epic and Story Stats -->
             <div class="stats-grid">
                 <div class="stat-card">
-                    <div class="stat-label">Total Scope</div>
-                    <div class="stat-value">40</div>
-                    <div class="stat-detail">51 total - 11 complete = 40 remaining<br>(20 M5 + 15 M6 + 3 Upgrades + 2 Perks)</div>
+                    <div class="stat-label">Total Scope (GEDP + PAS)</div>
+                    <div class="stat-value">33</div>
+                    <div class="stat-detail">46 total - 13 complete = 33 remaining<br>(16 M5 + 13 M6 + 3 Upgrades + 2 Perks - 2 Descoped to Q4)</div>
                 </div>
 
                 <div class="stat-card">
                     <div class="stat-label">M5 Epics Complete</div>
-                    <div class="stat-value">9</div>
-                    <div class="stat-detail">31% of M5 epics done/sign-off (7 Done + 2 Sign-off)</div>
+                    <div class="stat-value">11</div>
+                    <div class="stat-detail">41% of M5 epics done/sign-off (9 Done + 2 Sign-off)</div>
                     <div class="progress-bar">
-                        <div class="progress-fill warning" style="width: 31%"></div>
+                        <div class="progress-fill warning" style="width: 41%"></div>
                     </div>
                 </div>
 
                 <div class="stat-card">
                     <div class="stat-label">M6 Progress</div>
-                    <div class="stat-value">12%</div>
-                    <div class="stat-detail">2 epics done, 15 in progress/refinement/backlog</div>
+                    <div class="stat-value">13%</div>
+                    <div class="stat-detail">2 epics done, 13 in progress/refinement/design</div>
                     <div class="progress-bar">
-                        <div class="progress-fill danger" style="width: 12%"></div>
+                        <div class="progress-fill danger" style="width: 13%"></div>
                     </div>
                 </div>
 
@@ -470,21 +510,21 @@
                     <div class="milestone-header">
                         <div>
                             <div class="milestone-title">TMG-609: Milestone 5 - LN Tour Onsale</div>
-                            <div class="stat-detail">Original Target: July 31, 2026 | New Target: Sept 1, 2026</div>
+                            <div class="stat-detail">Original Target: July 31, 2026 | Revised Target: Sept 30, 2026</div>
                         </div>
-                        <span class="badge badge-warning">31% Complete</span>
+                        <span class="badge badge-warning">41% Complete</span>
                     </div>
                     <p><strong>Focus:</strong> Global Unlock Experience for Live Nation Tours with Password Offers, Smart Queue & Sponsorship</p>
                     <div class="stats-grid" style="margin-top: 1rem;">
                         <div>
-                            <div class="stat-label">Epics</div>
-                            <div style="font-size: 1.5rem; font-weight: 600; color: var(--tm-blue);">29</div>
-                            <div class="stat-detail">7 done, 2 sign-off, 20 in progress/ready</div>
+                            <div class="stat-label">Epics (GEDP + PAS)</div>
+                            <div style="font-size: 1.5rem; font-weight: 600; color: var(--tm-blue);">27</div>
+                            <div class="stat-detail">9 done, 2 sign-off, 16 in progress/ready</div>
                         </div>
                         <div>
                             <div class="stat-label">Est. Remaining Work</div>
-                            <div style="font-size: 1.5rem; font-weight: 600; color: var(--warning);">~156w</div>
-                            <div class="stat-detail">20 remaining epics × ~7.8w avg</div>
+                            <div style="font-size: 1.5rem; font-weight: 600; color: var(--success);">~23w</div>
+                            <div class="stat-detail">80% of stories complete across 16 remaining epics</div>
                         </div>
                     </div>
                 </div>
@@ -493,34 +533,35 @@
                     <div class="milestone-header">
                         <div>
                             <div class="milestone-title">TMG-610: Milestone 6 - Sports Events</div>
-                            <div class="stat-detail">Target: September 1, 2026</div>
+                            <div class="stat-detail">Target: September 30, 2026</div>
                         </div>
-                        <span class="badge badge-danger">12% Complete</span>
+                        <span class="badge badge-warning">14% Complete</span>
                     </div>
                     <p><strong>Focus:</strong> Enable LNOO sports events on Global EDP with full TM1 field support, GA inventory, packages</p>
                     <div class="stats-grid" style="margin-top: 1rem;">
                         <div>
-                            <div class="stat-label">Epics</div>
-                            <div style="font-size: 1.5rem; font-weight: 600; color: var(--tm-blue);">17</div>
-                            <div class="stat-detail">2 done, 6 in progress, 9 refinement/backlog</div>
+                            <div class="stat-label">Epics (GEDP + PAS)</div>
+                            <div style="font-size: 1.5rem; font-weight: 600; color: var(--tm-blue);">15</div>
+                            <div class="stat-detail">2 done, 7 in progress, 6 refinement/design/backlog</div>
                         </div>
                         <div>
                             <div class="stat-label">Est. Remaining Work</div>
-                            <div style="font-size: 1.5rem; font-weight: 600; color: var(--danger);">~64w</div>
-                            <div class="stat-detail">15 remaining epics × ~4.3w avg</div>
+                            <div style="font-size: 1.5rem; font-weight: 600; color: var(--warning);">~81w</div>
+                            <div class="stat-detail">14 remaining GEDP+PAS epics × ~5.8w avg</div>
                         </div>
                     </div>
+                    <p style="margin-top: 0.5rem; font-size: 0.8rem; color: var(--warning);"><strong>⚠️ ~50% estimation confidence</strong> — haven't stopped dev for detailed story pointing on unstarted stories due to tight deadlines. Actuals may increase.</p>
                 </div>
 
                 <div class="milestone-card">
                     <div class="milestone-header">
                         <div>
                             <div class="milestone-title">Upgrades (3 Epics)</div>
-                            <div class="stat-detail">Target: September 1, 2026</div>
+                            <div class="stat-detail">Target: September 30, 2026</div>
                         </div>
                         <span class="badge badge-danger">0% Complete</span>
                     </div>
-                    <p><strong>Focus:</strong> Phase 1 (GEDP-8881: 8w) + Phase 2 (GEDP-5306: 9w) + Backend (PAS-1: 18w)</p>
+                    <p><strong>Focus:</strong> Phase 1 (GEDP-8881: 8w) + Phase 2 (GEDP-5306: 9w) + Backend (PAS-1: 5w)</p>
                     <div class="stats-grid" style="margin-top: 1rem;">
                         <div>
                             <div class="stat-label">Epics</div>
@@ -529,8 +570,31 @@
                         </div>
                         <div>
                             <div class="stat-label">Total Engineering Weeks</div>
-                            <div style="font-size: 1.5rem; font-weight: 600; color: var(--danger);">35w</div>
-                            <div class="stat-detail">8w + 9w + 18w = 35 weeks</div>
+                            <div style="font-size: 1.5rem; font-weight: 600; color: var(--warning);">22w</div>
+                            <div class="stat-detail">8w + 9w + 5w = 22 weeks</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="milestone-card">
+                    <div class="milestone-header">
+                        <div>
+                            <div class="milestone-title">PAS Other Work (7 Epics)</div>
+                            <div class="stat-detail">Target: September 30, 2026</div>
+                        </div>
+                        <span class="badge badge-danger">0% Complete</span>
+                    </div>
+                    <p><strong>Focus:</strong> Codeless Unlock INTL (9w), GA Section Pricing (9w), RTB Work (9w), Dependency Modernization (15w), EU-Central Region (5w), Unplanned Support Buffers (10w)</p>
+                    <div class="stats-grid" style="margin-top: 1rem;">
+                        <div>
+                            <div class="stat-label">Epics</div>
+                            <div style="font-size: 1.5rem; font-weight: 600; color: var(--tm-blue);">7</div>
+                            <div class="stat-detail">PAS-541, PAS-22, PAS-540, PAS-26, PAS-639, PAS-721, PAS-720</div>
+                        </div>
+                        <div>
+                            <div class="stat-label">Total Engineering Weeks</div>
+                            <div style="font-size: 1.5rem; font-weight: 600; color: var(--warning);">48w</div>
+                            <div class="stat-detail">Mixed priority: critical unlock/pricing + RTB + buffers</div>
                         </div>
                     </div>
                 </div>
@@ -539,11 +603,11 @@
                     <div class="milestone-header">
                         <div>
                             <div class="milestone-title">TMG-2895: Ticket Perks (2 Epics)</div>
-                            <div class="stat-detail">Target: September 1, 2026</div>
+                            <div class="stat-detail">Target: September 30, 2026</div>
                         </div>
                         <span class="badge badge-danger">0% Complete</span>
                     </div>
-                    <p><strong>Focus:</strong> Frontend (GEDP-7536: 12w) + Backend (PAS-7: 22w)</p>
+                    <p><strong>Focus:</strong> Frontend (GEDP-7536: 12w) + Backend (PAS-7: 9w)</p>
                     <div class="stats-grid" style="margin-top: 1rem;">
                         <div>
                             <div class="stat-label">Epics</div>
@@ -552,41 +616,61 @@
                         </div>
                         <div>
                             <div class="stat-label">Total Engineering Weeks</div>
-                            <div style="font-size: 1.5rem; font-weight: 600; color: var(--danger);">34w</div>
-                            <div class="stat-detail">12w frontend + 22w backend</div>
+                            <div style="font-size: 1.5rem; font-weight: 600; color: var(--warning);">21w</div>
+                            <div class="stat-detail">12w frontend + 9w backend</div>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="section">
-                <h2 class="section-title">⚠️ Critical Risk Areas</h2>
+                <h2 class="section-title">⚠️ Risk Areas</h2>
 
-                <div class="alert alert-danger">
-                    <strong>🚨 CAPACITY CRISIS: 41% Overcommitted</strong><br>
-                    With 220.5 weeks available and ~311 weeks of remaining work (40 incomplete epics), we need to either:<br>
-                    • <strong>Descope ~29% of remaining work</strong> (~91 weeks)<br>
-                    • <strong>Add 9 more developers</strong> (43% team increase)<br>
-                    • <strong>Extend deadline by 4+ weeks</strong> (move to late September/early October 2026)<br>
-                    <strong>Action:</strong> Emergency prioritization and descoping session required by June 20.
+                <div class="alert alert-danger" style="background: rgba(229, 62, 62, 0.15); border-left-color: var(--danger);">
+                    <strong>✅ PAS Team WITHIN CAPACITY (+5.4w buffer)</strong><br>
+                    PAS has 78 weeks of work with 83.4 weeks available (6 devs × 13.9 weeks). <strong>5.4 weeks buffer.</strong><br>
+                    <strong>PAS Epics:</strong> PAS-4 (16w), PAS-34 (19w), PAS-444 (9w), PAS-18 (5w), PAS-624 (15w), PAS-638 (5w), PAS-759 (5w), PAS-777 (5w), PAS-1 (5w), PAS-7 (9w)<br>
+                    <strong>Action Required:</strong> Assign 1 additional developer to PAS (need 6 total). Descope PAS-540 (RTB, 9w) and PAS-541 (Codeless Unlock INTL, 9w) to Q4.<br>
+                    <strong>With 6 devs:</strong> 78w / 6 devs = 13.0 weeks → lands ~September 26 (5.4w buffer).
+                </div>
+
+                <div class="alert alert-success">
+                    <strong>✅ GEDP Team Within Capacity (82.8w buffer)</strong><br>
+                    GEDP has 146.8 weeks of work with 166.8 weeks available (12 devs × 13.9 weeks). <strong>20.0 weeks of buffer.</strong><br>
+                    <strong>Note:</strong> Healthy buffer — no descoping required. Monitor GEDP-7833 (25w Event Launch) as largest single epic.
+                </div>
+
+                <div class="alert alert-success">
+                    <strong>✅ PAS Team Within Capacity (+5.4w buffer)</strong><br>
+                    PAS has 78 weeks of work with 83.4 weeks available (6 devs × 13.9 weeks). <strong>5.4 weeks buffer.</strong><br>
+                    <strong>Descoped to Q4 2026:</strong> PAS-540 (RTB Tickets, 9w) and PAS-541 (Codeless Unlock INTL, 9w). PAS-26 (Dependencies, 15w) remains in Q3.<br>
+                    <strong>Impact:</strong> PAS lands ~September 26 (4 days early) with 6 devs.<br>
+                    <strong>Action:</strong> Assign 1 additional developer to PAS (need 6 total).
                 </div>
 
                 <div class="alert alert-warning">
-                    <strong>⚠️ M5 Sponsorship Features at High Risk</strong><br>
-                    Multiple sponsorship epics at 0-21% completion: GEDP-8217 (Ready for Dev), GEDP-8370, GEDP-6779<br>
-                    <strong>Mitigation:</strong> Consider descoping these (~32 weeks) if not contractually required.
+                    <strong>⚠️ PAS-624 (Resiliency Phase 2): 15 weeks — grew from 5w to 15w</strong><br>
+                    PAS-624 tripled in size and is now the second-largest PAS epic. Combined with PAS-34 (19w) and PAS-4 (16w), these three epics represent 49% of all PAS work.<br>
+                    <strong>Mitigation:</strong> Additional devs from other projects/other projects required to absorb the growth.
                 </div>
 
                 <div class="alert alert-warning">
-                    <strong>⚠️ Upgrades Work Never Started</strong><br>
-                    35 weeks of Upgrades work (GEDP-8881, GEDP-5306, PAS-1) still in early stages<br>
-                    <strong>Mitigation:</strong> Defer Upgrades Phase 2 (GEDP-5306) to Q4, saving 9 weeks.
+                    <strong>⚠️ GEDP-7833 (M5 Event Launch): 25 weeks — largest GEDP epic</strong><br>
+                    GEDP-7833 alone consumes 25 of 166.8 available GEDP weeks (15% of all GEDP capacity).<br>
+                    <strong>Mitigation:</strong> Monitor velocity — any scope growth here directly erodes GEDP buffer.
                 </div>
 
-                <div class="alert alert-warning">
-                    <strong>⚠️ Ticket Perks Backend Blocking</strong><br>
-                    PAS-7 (22 weeks) blocks GEDP-7536. Backend work needs to start immediately.<br>
-                    <strong>Mitigation:</strong> Prioritize PAS-7 backend work or defer entire Ticket Perks to Q4.
+                <div class="alert alert-info">
+                    <strong>ℹ️ GEDP-9109 (Performance Improvements): Not yet estimated</strong><br>
+                    GEDP-9109 has no engineering weeks assigned in Jira. Once estimated, this will reduce GEDP buffer.<br>
+                    <strong>Action:</strong> Get engineering weeks estimate from team to validate capacity analysis.
+                </div>
+
+                <div class="alert alert-info">
+                    <strong>ℹ️ PAS-26 (Dependency Modernization, 15w): Potential to Move Out of PAS Scope</strong><br>
+                    PAS-26 aligns with the RAS Resiliency work that Charles and Emmanuel are focused on. If Lovee agrees to prioritize this work in their team's deliveries, PAS-26 (15w) can be removed from PAS Q3 scope.<br>
+                    <strong>Impact if moved:</strong> PAS work reduces from 78w to 63w, creating a 20.4w buffer with 6 devs. PAS would land even earlier.<br>
+                    <strong>Action:</strong> Get Lovee's agreement that PAS-26 will be prioritized by the RAS Resiliency team.
                 </div>
             </div>
         </div>
@@ -594,22 +678,21 @@
         <!-- MILESTONE 5 TAB -->
         <div id="m5" class="tab-content">
             <div class="section">
-                <h2 class="section-title">🚀 Milestone 5: LN Tour Onsale (29 Epics)</h2>
+                <h2 class="section-title">🚀 Milestone 5: LN Tour Onsale (27 GEDP + PAS Epics)</h2>
 
                 <div class="alert alert-info">
-                    <strong>📊 M5 Status Summary (June 18, 2026)</strong><br>
-                    • <strong>7 Done</strong> (GEDP-5252, GEDP-6731, GEDP-6914, GEDP-8738, PAS-25, GEDP-6136, CTHOST-6551)<br>
+                    <strong>📊 M5 Status Summary (June 25, 2026)</strong><br>
+                    • <strong>9 Done</strong> (GEDP-5252, GEDP-6731, GEDP-6914, GEDP-8738, PAS-25, GEDP-6136, PAS-24, PAS-37, PAS-29)<br>
                     • <strong>2 Sign-off</strong> (GEDP-4957, GEDP-5288)<br>
-                    • <strong>14 In Progress</strong><br>
-                    • <strong>1 Ready for Dev</strong> (GEDP-8217)<br>
-                    • <strong>1 Code Review</strong> (TM1UP-3360)<br>
-                    • <strong>4 Other statuses</strong><br>
-                    • <strong>Completion Rate:</strong> 31% (treating Sign-off as Done)<br>
+                    • <strong>11 In Progress</strong><br>
+                    • <strong>5 Other statuses</strong><br>
+                    • <strong>Completion Rate:</strong> 41% (treating Sign-off as Done: 11 of 27)<br>
                     • <strong>Original Deadline:</strong> July 31, 2026 (already missed)<br>
-                    • <strong>New Target:</strong> September 1, 2026 (still at risk)
+                    • <strong>New Target:</strong> September 30, 2026 (achievable with current scope)<br>
+                    • <strong>Note:</strong> GEDP and PAS epics only (removed CTHOST-6551, TM1UP-3360)
                 </div>
 
-                <h3 class="section-subtitle">✅ Done (7 Epics)</h3>
+                <h3 class="section-subtitle">✅ Done (9 Epics)</h3>
                 <table>
                     <thead>
                         <tr>
@@ -650,8 +733,18 @@
                             <td><span class="badge badge-success">Done</span></td>
                         </tr>
                         <tr>
-                            <td><a href="https://jira.livenation.com/browse/CTHOST-6551" target="_blank" class="epic-key">CTHOST-6551</a></td>
-                            <td>M5 Infrastructure Support</td>
+                            <td><a href="https://jira.livenation.com/browse/PAS-24" target="_blank" class="epic-key">PAS-24</a></td>
+                            <td>Integrate Codeless Unlockable Offers into RAS</td>
+                            <td><span class="badge badge-success">Done</span></td>
+                        </tr>
+                        <tr>
+                            <td><a href="https://jira.livenation.com/browse/PAS-37" target="_blank" class="epic-key">PAS-37</a></td>
+                            <td>Auto Routing - New Page Mode Service</td>
+                            <td><span class="badge badge-success">Done</span></td>
+                        </tr>
+                        <tr>
+                            <td><a href="https://jira.livenation.com/browse/PAS-29" target="_blank" class="epic-key">PAS-29</a></td>
+                            <td>RAS: Platform Resiliency Phase 1</td>
                             <td><span class="badge badge-success">Done</span></td>
                         </tr>
                     </tbody>
@@ -680,7 +773,7 @@
                     </tbody>
                 </table>
 
-                <h3 class="section-subtitle">🔨 In Progress (14 Epics)</h3>
+                <h3 class="section-subtitle">🔨 In Progress (11 Epics)</h3>
                 <table>
                     <thead>
                         <tr>
@@ -698,34 +791,16 @@
                             <td>Critical path</td>
                         </tr>
                         <tr>
-                            <td><a href="https://jira.livenation.com/browse/PAS-24" target="_blank" class="epic-key">PAS-24</a></td>
-                            <td>Integrate Codeless Unlockable Offers into RAS</td>
-                            <td><span class="badge badge-warning">In Progress</span></td>
-                            <td>High - large effort</td>
-                        </tr>
-                        <tr>
-                            <td><a href="https://jira.livenation.com/browse/PAS-29" target="_blank" class="epic-key">PAS-29</a></td>
-                            <td>RAS: Platform Resiliency Phase 1</td>
-                            <td><span class="badge badge-warning">In Progress</span></td>
-                            <td>Medium</td>
-                        </tr>
-                        <tr>
                             <td><a href="https://jira.livenation.com/browse/PAS-32" target="_blank" class="epic-key">PAS-32</a></td>
                             <td>RAS: Abuse Prevention</td>
-                            <td><span class="badge badge-warning">In Progress</span></td>
-                            <td>High</td>
+                            <td><span class="badge badge-success">Done</span></td>
+                            <td>Completed 6/25</td>
                         </tr>
                         <tr>
                             <td><a href="https://jira.livenation.com/browse/PAS-34" target="_blank" class="epic-key">PAS-34</a></td>
                             <td>Landing State Solution/Feature Flag</td>
                             <td><span class="badge badge-warning">In Progress</span></td>
                             <td>High</td>
-                        </tr>
-                        <tr>
-                            <td><a href="https://jira.livenation.com/browse/PAS-37" target="_blank" class="epic-key">PAS-37</a></td>
-                            <td>Auto Routing - New Page Mode Service</td>
-                            <td><span class="badge badge-warning">In Progress</span></td>
-                            <td>Medium</td>
                         </tr>
                         <tr>
                             <td><a href="https://jira.livenation.com/browse/GEDP-5003" target="_blank" class="epic-key">GEDP-5003</a></td>
@@ -761,7 +836,7 @@
                             <td><a href="https://jira.livenation.com/browse/GEDP-6779" target="_blank" class="epic-key">GEDP-6779</a></td>
                             <td>Codeless Unlock for Live Nation All Access</td>
                             <td><span class="badge badge-warning">In Progress</span></td>
-                            <td>🚨 High - Descope candidate</td>
+                            <td>High</td>
                         </tr>
                         <tr>
                             <td><a href="https://jira.livenation.com/browse/GEDP-7541" target="_blank" class="epic-key">GEDP-7541</a></td>
@@ -770,83 +845,34 @@
                             <td>Medium</td>
                         </tr>
                         <tr>
-                            <td><a href="https://jira.livenation.com/browse/GEDP-7833" target="_blank" class="epic-key">GEDP-7833</a></td>
-                            <td>Milestone 5 Event Launch</td>
-                            <td><span class="badge badge-warning">In Progress</span></td>
-                            <td>Critical path</td>
-                        </tr>
-                        <tr>
-                            <td><a href="https://jira.livenation.com/browse/GEDP-7922" target="_blank" class="epic-key">GEDP-7922</a></td>
-                            <td>Limited Inventory Panel</td>
-                            <td><span class="badge badge-warning">In Progress</span></td>
-                            <td>Medium</td>
-                        </tr>
-                        <tr>
-                            <td><a href="https://jira.livenation.com/browse/GEDP-8370" target="_blank" class="epic-key">GEDP-8370</a></td>
-                            <td>Sponsorship M5 Misc. Features</td>
-                            <td><span class="badge badge-warning">In Progress</span></td>
-                            <td>🚨 High - Descope candidate</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <h3 class="section-subtitle">📋 Ready for Development (1 Epic)</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Epic Key</th>
-                            <th>Title</th>
-                            <th>Status</th>
-                            <th>Risk Level</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
                             <td><a href="https://jira.livenation.com/browse/GEDP-8217" target="_blank" class="epic-key">GEDP-8217</a></td>
                             <td>Sponsorship M5 Protected Offer Features</td>
-                            <td><span class="badge badge-danger">Ready for Dev</span></td>
-                            <td>🚨 Critical - Descope candidate (15 weeks)</td>
+                            <td><span class="badge badge-warning">In Progress</span></td>
+                            <td>High (1 week)</td>
                         </tr>
                     </tbody>
                 </table>
 
-                <h3 class="section-subtitle">🔍 Code Review (1 Epic)</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Epic Key</th>
-                            <th>Title</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><a href="https://jira.livenation.com/browse/TM1UP-3360" target="_blank" class="epic-key">TM1UP-3360</a></td>
-                            <td>M5 TM1 Support</td>
-                            <td><span class="badge badge-info">Code Review</span></td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <h3 class="section-subtitle">📦 Other Statuses (3 Epics)</h3>
-                <p style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 0.5rem;">Various statuses including refinement, backlog, etc.</p>
+                <h3 class="section-subtitle">📦 Other Statuses (4 Epics)</h3>
+                <p style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 0.5rem;">Various statuses including GEDP-7833 (M5 Event Launch, 25w), GEDP-7922 (Limited Inventory Panel, 6w), GEDP-8370 (Sponsorship M5 Misc, 8w), GCO-5716 (Account Linking - excluded: not GEDP/PAS project)</p>
             </div>
         </div>
 
         <!-- MILESTONE 6 TAB -->
         <div id="m6" class="tab-content">
             <div class="section">
-                <h2 class="section-title">🏀 Milestone 6: Sports Events (17 Epics)</h2>
+                <h2 class="section-title">🏀 Milestone 6: Sports Events (14 GEDP + PAS Epics)</h2>
 
-                <div class="alert alert-warning">
-                    <strong>⚠️ M6 Status (June 18, 2026)</strong><br>
+                <div class="alert alert-info">
+                    <strong>📊 M6 Status (June 25, 2026)</strong><br>
                     • <strong>2 Done</strong> (GEDP-5295, PAS-556)<br>
-                    • <strong>6 In Progress</strong> (GCO-5716, GDISCO-4436, GEDP-5282, GEDP-5290, GEDP-8155, GEDP-8156)<br>
-                    • <strong>1 In Refinement</strong> (GEDP-5305)<br>
-                    • <strong>5 Ready for Refinement</strong><br>
-                    • <strong>3 Backlog</strong><br>
-                    • <strong>Completion Rate:</strong> 12% (2 of 17 epics)<br>
-                    • <strong>Estimated Remaining Work:</strong> ~80 engineering weeks
+                    • <strong>7 In Progress</strong> (GEDP-5282, GEDP-5290, GEDP-8155, GEDP-8156, GEDP-9091, GEDP-8183, PAS-759)<br>
+                    • <strong>3 Ready for Refinement</strong> (GEDP-7881, GEDP-9109, PAS-18)<br>
+                    • <strong>4 Other</strong> (PAS-444 Ready for Dev, PAS-624 Ready for Dev, PAS-638 In Design, PAS-777 Backlog)<br>
+                    • <strong>Completion Rate:</strong> 13% (2 of 16 epics)<br>
+                    • <strong>Estimated Remaining Work:</strong> ~81 engineering weeks<br>
+                    • <strong style="color: var(--warning);">⚠️ Estimation Confidence: ~50%</strong> — Tight deadlines have prevented stopping dev for detailed story pointing on unstarted work. Actuals may increase.<br>
+                    • <strong>Note:</strong> GEDP and PAS epics only (removed GCO-5716, GDISCO-4436, GEDP-5305, TMSPON-29809)
                 </div>
 
                 <h3 class="section-subtitle">✅ Done (2 Epics)</h3>
@@ -872,73 +898,69 @@
                     </tbody>
                 </table>
 
-                <h3 class="section-subtitle">🔨 In Progress (6 Epics)</h3>
+                <h3 class="section-subtitle">🔨 In Progress (7 Epics)</h3>
                 <table>
                     <thead>
                         <tr>
                             <th>Epic Key</th>
                             <th>Title</th>
+                            <th>Eng Weeks</th>
                             <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><a href="https://jira.livenation.com/browse/GCO-5716" target="_blank" class="epic-key">GCO-5716</a></td>
-                            <td>M6 GCO Support</td>
-                            <td><span class="badge badge-warning">In Progress</span></td>
-                        </tr>
-                        <tr>
-                            <td><a href="https://jira.livenation.com/browse/GDISCO-4436" target="_blank" class="epic-key">GDISCO-4436</a></td>
-                            <td>M6 Discovery Support</td>
-                            <td><span class="badge badge-warning">In Progress</span></td>
-                        </tr>
-                        <tr>
                             <td><a href="https://jira.livenation.com/browse/GEDP-5282" target="_blank" class="epic-key">GEDP-5282</a></td>
                             <td>Client Co-Branding Using Co-Branding Tool</td>
+                            <td><strong>4.0w</strong></td>
                             <td><span class="badge badge-warning">In Progress</span></td>
                         </tr>
                         <tr>
                             <td><a href="https://jira.livenation.com/browse/GEDP-5290" target="_blank" class="epic-key">GEDP-5290</a></td>
                             <td>Front End Abuse Messaging</td>
+                            <td><strong>4.0w</strong></td>
                             <td><span class="badge badge-warning">In Progress</span></td>
                         </tr>
                         <tr>
                             <td><a href="https://jira.livenation.com/browse/GEDP-8155" target="_blank" class="epic-key">GEDP-8155</a></td>
                             <td>Sports Calendar</td>
+                            <td><strong>6.0w</strong></td>
                             <td><span class="badge badge-warning">In Progress</span></td>
                         </tr>
                         <tr>
                             <td><a href="https://jira.livenation.com/browse/GEDP-8156" target="_blank" class="epic-key">GEDP-8156</a></td>
                             <td>League Branding</td>
+                            <td><strong>2.0w</strong></td>
+                            <td><span class="badge badge-warning">In Progress</span></td>
+                        </tr>
+                        <tr>
+                            <td><a href="https://jira.livenation.com/browse/GEDP-9091" target="_blank" class="epic-key">GEDP-9091</a></td>
+                            <td>Sponsorship M6 Misc. Features</td>
+                            <td><strong>3.0w</strong></td>
+                            <td><span class="badge badge-warning">In Progress</span></td>
+                        </tr>
+                        <tr>
+                            <td><a href="https://jira.livenation.com/browse/GEDP-8183" target="_blank" class="epic-key">GEDP-8183</a></td>
+                            <td>Milestone 6 Event Launch</td>
+                            <td><strong>6.0w</strong></td>
+                            <td><span class="badge badge-warning">In Progress</span></td>
+                        </tr>
+                        <tr>
+                            <td><a href="https://jira.livenation.com/browse/PAS-759" target="_blank" class="epic-key">PAS-759</a></td>
+                            <td>RAS Availability Flapping</td>
+                            <td><strong>5.0w</strong></td>
                             <td><span class="badge badge-warning">In Progress</span></td>
                         </tr>
                     </tbody>
                 </table>
 
-                <h3 class="section-subtitle">🔄 In Refinement (1 Epic)</h3>
+                <h3 class="section-subtitle">📋 Ready for Refinement/Dev (3 Epics)</h3>
                 <table>
                     <thead>
                         <tr>
                             <th>Epic Key</th>
                             <th>Title</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><a href="https://jira.livenation.com/browse/GEDP-5305" target="_blank" class="epic-key">GEDP-5305</a></td>
-                            <td>Club Site</td>
-                            <td><span class="badge badge-info">In Refinement</span></td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <h3 class="section-subtitle">📋 Ready for Refinement (5 Epics)</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Epic Key</th>
-                            <th>Title</th>
+                            <th>Eng Weeks</th>
                             <th>Status</th>
                         </tr>
                     </thead>
@@ -946,59 +968,57 @@
                         <tr>
                             <td><a href="https://jira.livenation.com/browse/GEDP-7881" target="_blank" class="epic-key">GEDP-7881</a></td>
                             <td>Ticket Packages Phase 2</td>
-                            <td><span class="badge badge-warning">Ready for Refinement</span></td>
-                        </tr>
-                        <tr>
-                            <td><a href="https://jira.livenation.com/browse/GEDP-8183" target="_blank" class="epic-key">GEDP-8183</a></td>
-                            <td>Milestone 6 Event Launch</td>
-                            <td><span class="badge badge-warning">Ready for Refinement</span></td>
-                        </tr>
-                        <tr>
-                            <td><a href="https://jira.livenation.com/browse/GEDP-9000" target="_blank" class="epic-key">GEDP-9000</a></td>
-                            <td>Deep Linking to Account-Linked Offers</td>
-                            <td><span class="badge badge-warning">Ready for Refinement</span></td>
-                        </tr>
-                        <tr>
-                            <td><a href="https://jira.livenation.com/browse/GEDP-9091" target="_blank" class="epic-key">GEDP-9091</a></td>
-                            <td>Sponsorship M6 Misc. Features</td>
+                            <td><strong>12.0w</strong></td>
                             <td><span class="badge badge-warning">Ready for Refinement</span></td>
                         </tr>
                         <tr>
                             <td><a href="https://jira.livenation.com/browse/GEDP-9109" target="_blank" class="epic-key">GEDP-9109</a></td>
                             <td>Performance Improvements</td>
+                            <td><em>Not estimated</em></td>
                             <td><span class="badge badge-warning">Ready for Refinement</span></td>
                         </tr>
                         <tr>
                             <td><a href="https://jira.livenation.com/browse/PAS-18" target="_blank" class="epic-key">PAS-18</a></td>
                             <td>Milestone 6 Backend Support</td>
+                            <td><strong>5.0w</strong></td>
                             <td><span class="badge badge-warning">Ready for Refinement</span></td>
                         </tr>
                     </tbody>
                 </table>
 
-                <h3 class="section-subtitle">📦 Backlog (3 Epics)</h3>
+                <h3 class="section-subtitle">📦 Other (4 Epics)</h3>
                 <table>
                     <thead>
                         <tr>
                             <th>Epic Key</th>
                             <th>Title</th>
+                            <th>Eng Weeks</th>
                             <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
+                            <td><a href="https://jira.livenation.com/browse/PAS-444" target="_blank" class="epic-key">PAS-444</a></td>
+                            <td>RAS: Abuse Protection behind Umbrella</td>
+                            <td><strong>9.0w</strong></td>
+                            <td><span class="badge badge-info">Ready for Dev</span></td>
+                        </tr>
+                        <tr>
                             <td><a href="https://jira.livenation.com/browse/PAS-624" target="_blank" class="epic-key">PAS-624</a></td>
                             <td>RAS: Platform Resiliency Phase 2</td>
-                            <td><span class="badge badge-info">Backlog</span></td>
+                            <td><strong>15.0w</strong></td>
+                            <td><span class="badge badge-info">Ready for Dev</span></td>
                         </tr>
                         <tr>
                             <td><a href="https://jira.livenation.com/browse/PAS-638" target="_blank" class="epic-key">PAS-638</a></td>
                             <td>RAS: EU-West region setup</td>
-                            <td><span class="badge badge-info">Backlog</span></td>
+                            <td><strong>5.0w</strong></td>
+                            <td><span class="badge badge-info">In Design</span></td>
                         </tr>
                         <tr>
-                            <td><a href="https://jira.livenation.com/browse/TMSPON-29809" target="_blank" class="epic-key">TMSPON-29809</a></td>
-                            <td>M6 Sponsorship Support</td>
+                            <td><a href="https://jira.livenation.com/browse/PAS-777" target="_blank" class="epic-key">PAS-777</a></td>
+                            <td>EDP NA: Canada Tax Compliance (Backend)</td>
+                            <td><strong>5.0w</strong></td>
                             <td><span class="badge badge-info">Backlog</span></td>
                         </tr>
                     </tbody>
@@ -1009,15 +1029,15 @@
         <!-- UPGRADES TAB -->
         <div id="upgrades" class="tab-content">
             <div class="section">
-                <h2 class="section-title">⬆️ Upgrades (3 Epics - 35 Engineering Weeks)</h2>
+                <h2 class="section-title">⬆️ Upgrades (3 Epics - 22 Engineering Weeks)</h2>
 
-                <div class="alert alert-danger">
-                    <strong>🚨 CRITICAL: Upgrades Work Not Started</strong><br>
-                    All 3 Upgrades epics are in early stages with 35 total engineering weeks of work:<br>
+                <div class="alert alert-warning">
+                    <strong>⚠️ Upgrades Work Not Started</strong><br>
+                    All 3 Upgrades epics are in early stages with 22 total engineering weeks of work:<br>
                     • <strong>GEDP-8881:</strong> Phase 1 - Bring Upgrades to Global EDP (8 weeks) - In Progress<br>
                     • <strong>GEDP-5306:</strong> Phase 2 - Flat Fee UX Display (9 weeks) - Ready for Refinement<br>
-                    • <strong>PAS-1:</strong> Upgrades Backend Work including Flat Fee (18 weeks) - In Progress<br><br>
-                    <strong>Recommendation:</strong> Defer Phase 2 (GEDP-5306) to Q4, saving 9 weeks. Focus on Phase 1 + Backend only.
+                    • <strong>PAS-1:</strong> Upgrades Backend Work including Flat Fee (5 weeks) - In Progress<br><br>
+                    <strong>Recommendation:</strong> All 3 epics (20w) ship by 9/30. Prioritize Phase 1 + Backend first, Phase 2 follows.
                 </div>
 
                 <table>
@@ -1035,26 +1055,26 @@
                         <tr>
                             <td><a href="https://jira.livenation.com/browse/GEDP-8881" target="_blank" class="epic-key">GEDP-8881</a></td>
                             <td>Upgrades Phase 1 - Bring Upgrades to Global EDP</td>
-                            <td>8.0w</td>
+                            <td><strong>8.0w</strong></td>
                             <td><span class="badge badge-info">In Progress</span></td>
-                            <td><span class="badge badge-warning">At Risk</span></td>
-                            <td>NA parity, current UX. Multiple MRs open, not yet merged.</td>
+                            <td><span class="badge badge-success">On Track</span></td>
+                            <td>NA parity, current UX. Multiple MRs open. RAG: On Track</td>
                         </tr>
                         <tr>
                             <td><a href="https://jira.livenation.com/browse/GEDP-5306" target="_blank" class="epic-key">GEDP-5306</a></td>
                             <td>Upgrades Phase 2 - Flat Fee UX Display</td>
-                            <td>9.0w</td>
+                            <td><strong>9.0w</strong></td>
                             <td><span class="badge badge-warning">Ready for Refinement</span></td>
                             <td><span class="badge badge-warning">Not Started</span></td>
-                            <td>🚨 <strong>DESCOPE CANDIDATE</strong> - Defer to Q4</td>
+                            <td>Committed — ships by 9/30. Sequenced after Phase 1. RAG: Not Started</td>
                         </tr>
                         <tr>
                             <td><a href="https://jira.livenation.com/browse/PAS-1" target="_blank" class="epic-key">PAS-1</a></td>
                             <td>RAS: Upgrades Backend Work including Flat Fee</td>
-                            <td>18.0w</td>
+                            <td><strong>5.0w</strong></td>
                             <td><span class="badge badge-info">In Progress</span></td>
-                            <td><span class="badge badge-warning">Not Started</span></td>
-                            <td>Backend foundation required for Phase 1 & 2</td>
+                            <td><span class="badge badge-success">On Track</span></td>
+                            <td>Backend foundation required for Phase 1 & 2. RAG: On Track</td>
                         </tr>
                     </tbody>
                 </table>
@@ -1068,7 +1088,7 @@
                         <strong>Phase 2 (GEDP-5306) Dependency:</strong> Requires Phase 1 to ship first. Also depends on PAS-1 backend work for flat fee support.
                     </li>
                     <li>
-                        <strong>Backend (PAS-1) Status:</strong> 18 weeks of work, not yet started. Critical path for both Phase 1 and Phase 2.
+                        <strong>Backend (PAS-1) Status:</strong> 5 weeks of work remaining. Critical path for both Phase 1 and Phase 2.
                     </li>
                 </ul>
             </div>
@@ -1077,7 +1097,7 @@
         <!-- TICKET PERKS TAB -->
         <div id="perks" class="tab-content">
             <div class="section">
-                <h2 class="section-title">🎫 Ticket Perks (TMG-2895) - 2 Epics - 34 Engineering Weeks</h2>
+                <h2 class="section-title">🎫 Ticket Perks (TMG-2895) - 2 Epics - 21 Engineering Weeks</h2>
 
                 <div class="alert alert-info">
                     <strong>ℹ️ About Ticket Perks</strong><br>
@@ -1101,22 +1121,22 @@
                         <tr>
                             <td><a href="https://jira.livenation.com/browse/GEDP-7536" target="_blank" class="epic-key">GEDP-7536</a></td>
                             <td>Ticket Perks - Milestone Beta (Frontend)</td>
-                            <td>12.0w</td>
-                            <td><span class="badge badge-warning">Ready for Dev</span></td>
-                            <td><span class="badge badge-warning">At Risk</span></td>
-                            <td>Display perks on ISM, filters, list view, offer card, ticket bag.</td>
+                            <td><strong>12.0w</strong></td>
+                            <td><span class="badge badge-warning">In Progress</span></td>
+                            <td><span class="badge badge-success">On Track</span></td>
+                            <td>Dev work started 6/24. Display perks on ISM, filters, list view, offer card, ticket bag. RAG: On Track</td>
                         </tr>
                         <tr>
                             <td><a href="https://jira.livenation.com/browse/PAS-7" target="_blank" class="epic-key">PAS-7</a></td>
                             <td>Backend Ticket Perks - Milestone Beta</td>
-                            <td>22.0w</td>
-                            <td><span class="badge badge-info">In Progress</span></td>
-                            <td><span class="badge badge-warning">Not Started</span></td>
-                            <td>RAS consume TM1 attributes, multi-lang support, Seat Attributes API (REST endpoints). Blocks GEDP-7536.</td>
+                            <td><strong>9.0w</strong></td>
+                            <td><span class="badge badge-warning">In Progress</span></td>
+                            <td><span class="badge badge-success">On Track</span></td>
+                            <td>RAS consume TM1 attributes, multi-lang support, Seat Attributes API (REST endpoints). Blocks GEDP-7536. RAG: On Track</td>
                         </tr>
                         <tr style="font-weight: bold; background: var(--bg-dark);">
                             <td colspan="2"><strong>TOTAL</strong></td>
-                            <td><strong>34.0w</strong></td>
+                            <td><strong>21.0w</strong></td>
                             <td colspan="3"><strong>Blocked: PAS-7 must complete before GEDP-7536 can finish</strong></td>
                         </tr>
                     </tbody>
@@ -1125,7 +1145,7 @@
                 <h3 class="section-subtitle">Dependencies & Blockers</h3>
                 <ul class="recommendation-list">
                     <li>
-                        <strong>PAS-7 Backend Blocks Frontend:</strong> GEDP-7536 depends on PAS-7 completing first. Backend work provides Seat Attributes API that frontend consumes. 22 weeks of backend work needs to start immediately.
+                        <strong>PAS-7 Backend Blocks Frontend:</strong> GEDP-7536 depends on PAS-7 completing first. Backend work provides Seat Attributes API that frontend consumes. 9 weeks of backend work remaining.
                     </li>
                     <li>
                         <strong>TM1 Dependencies:</strong> External dependencies on TM1 teams (TM1XP-2223, TM1XP-2063, TM1XP-2099) for seat attribute authoring and data flow. These are tracked outside GEDP/PAS projects.
@@ -1136,13 +1156,75 @@
                 </ul>
 
                 <h3 class="section-subtitle">⚠️ Risk Assessment</h3>
-                <div class="alert alert-danger">
-                    <strong>🚨 HIGH RISK: 34 Weeks of Work, Not Yet Started</strong><br>
-                    • <strong>Backend Critical Path:</strong> 22 weeks (PAS-7) must complete before frontend can finish<br>
+                <div class="alert alert-info">
+                    <strong>ℹ️ LOW RISK: 14 Weeks of Work, Backend Nearly Done</strong><br>
+                    • <strong>Backend Critical Path:</strong> 9 weeks (PAS-7) remaining — significant work ahead<br>
                     • <strong>Sequential Dependency:</strong> Frontend can't complete until backend ships Seat Attributes API<br>
                     • <strong>External Dependencies:</strong> 3 TM1 epics must deliver attribute data flow<br>
-                    • <strong>Time Remaining:</strong> Only 10.5 weeks to 9/1 deadline<br>
-                    • <strong>Recommendation:</strong> 🚨 <strong>DEFER TO Q4</strong> - Saves 34 weeks, no 9/1 impact
+                    • <strong>Time Remaining:</strong> 14 weeks to 9/30 deadline<br>
+                    • <strong>Recommendation:</strong> 💡 <strong>Achievable</strong> — backend nearly done, frontend has full runway. Risk is only GEDP capacity if frontend is kept.
+                </div>
+            </div>
+        </div>
+
+        <!-- PAS OTHER WORK TAB -->
+        <div id="unlock" class="tab-content">
+            <div class="section">
+                <h2 class="section-title">🔧 PAS Other Work (1 Epic Descoped to Q4 2026)</h2>
+
+                <div class="alert alert-warning">
+                    <strong>⚠️ PAS-540 and PAS-541 Descoped to Q4 2026</strong><br>
+                    PAS-540 (RTB Tickets, 9w) and PAS-541 (Codeless Unlock INTL, 9w) have been moved to Q4 2026. PAS-540 is lower-priority operational work (Nexus 3, Kafka secrets, Traefik ingress, alert reviews). PAS-541 is Codeless Unlock for international markets.<br><br>
+                    <strong>Q3 Impact:</strong> Descoping PAS-540 and PAS-541 reduces PAS work from 96w to 78w. With 6 developers (83.4w capacity), PAS has a 5.4w buffer and lands ~September 26 (4 days early).<br>
+                    <strong>Note:</strong> PAS-26 (Dependencies, 15w) remains in Q3 scope.
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Epic Key</th>
+                            <th>Title</th>
+                            <th>Eng Weeks</th>
+                            <th>Status</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="background: rgba(229, 62, 62, 0.05);">
+                            <td><a href="https://jira.livenation.com/browse/PAS-540" target="_blank" class="epic-key">PAS-540</a></td>
+                            <td>PAS Planned RTB Tickets for Q3 2026</td>
+                            <td><strong>9.0w</strong></td>
+                            <td><span class="badge badge-danger">Descoped to Q4</span></td>
+                            <td>Run the Business work: Nexus 3, Kafka secrets vault, Traefik ingress, alert reviews. Operational improvements not blocking customer features. Moved to Q4 2026.</td>
+                        </tr>
+                        <tr style="background: rgba(229, 62, 62, 0.05);">
+                            <td><a href="https://jira.livenation.com/browse/PAS-541" target="_blank" class="epic-key">PAS-541</a></td>
+                            <td>Codeless Unlock - International Markets</td>
+                            <td><strong>9.0w</strong></td>
+                            <td><span class="badge badge-danger">Descoped to Q4</span></td>
+                            <td>Codeless Unlock for international markets beyond North America. Non-critical path feature. Moved to Q4 2026.</td>
+                        </tr>
+                        <tr style="font-weight: bold; background: rgba(229, 62, 62, 0.1);">
+                            <td colspan="2"><strong>TOTAL DESCOPED</strong></td>
+                            <td><strong>18.0w</strong></td>
+                            <td colspan="2"><strong>2 PAS epics moved to Q4 2026</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3 class="section-subtitle">Rationale for Descoping PAS-540</h3>
+
+                <div class="milestone-card">
+                    <div class="milestone-header">
+                        <div class="milestone-title">Why PAS-540 Was Descoped</div>
+                        <span class="badge badge-info">Strategic Decision</span>
+                    </div>
+                    <p><strong>Context:</strong> PAS-540 (RTB Tickets, 9w) and PAS-541 (Codeless Unlock INTL, 9w) do not block critical customer-facing M5/M6 features.</p>
+                    <ul class="recommendation-list">
+                        <li><strong>PAS-540 (RTB Tickets, 9w):</strong> Operational improvements including Nexus 3 npm migration, Kafka Connect vault secrets, Traefik ingress migration, JWT keys to vault, and alert reviews. These are "Run the Business" tasks that improve operational efficiency but do not block customer features.</li>
+                        <li><strong>PAS-541 (Codeless Unlock INTL, 9w):</strong> Codeless Unlock for international markets beyond North America. Non-critical path feature that can be delivered in Q4 after core NA functionality is proven.</li>
+                    </ul>
+                    <p style="margin-top: 1rem;"><strong>Impact:</strong> Reduces PAS work from 96w to 78w. With 6 developers (83.4w capacity), PAS has a 5.4w buffer and lands ~September 26 (4 days early). All customer-facing M5/M6/Upgrades/Perks commitments remain in scope, including PAS-26 (Dependencies).</p>
                 </div>
             </div>
         </div>
@@ -1150,14 +1232,17 @@
         <!-- FEASIBILITY ANALYSIS TAB -->
         <div id="analysis" class="tab-content">
             <div class="section">
-                <h2 class="section-title">📈 Feasibility Analysis for September 1, 2026</h2>
+                <h2 class="section-title">📈 Feasibility Analysis for September 30, 2026</h2>
 
-                <div class="alert alert-danger" style="background: rgba(229, 62, 62, 0.15);">
-                    <strong>🚨 VERDICT: NOT FEASIBLE</strong><br>
-                    September 1, 2026 deadline is <strong>NOT achievable</strong> with current scope and team size.<br>
-                    <strong>Gap:</strong> ~91 engineering weeks (41% over capacity) across 40 incomplete epics<br>
-                    <strong>Current Progress:</strong> M5: 31% (9 of 29 Done/Sign-off), M6: 12% (2 of 17 Done), Upgrades: 0%, Perks: 0%<br>
-                    <strong>Required Action:</strong> Choose one of the options below by June 20, 2026.
+                <div class="alert alert-success" style="background: rgba(56, 161, 105, 0.15);">
+                    <strong>✅ VERDICT: BOTH TEAMS ON TRACK — GEDP & PAS LAND BY SEPT 30</strong><br>
+                    GEDP is well within capacity. PAS with 6 devs has 5.4w buffer and lands ~Sept 26 (4 days early).<br><br>
+                    <strong>✅ PAS:</strong> 78w work / 83.4w capacity = 5.4w BUFFER (at 6 devs, lands ~Sept 26)<br>
+                    <strong>✅ GEDP:</strong> 84w work / 166.8w capacity = 82.8w buffer<br>
+                    <strong>Combined (18 devs):</strong> ~162w work / 250.2w capacity → 88.2w buffer ✅<br>
+                    <strong>⚠️ M6 Estimation Confidence: ~50%</strong> — Haven't stopped dev for detailed story pointing on unstarted work. M6 estimates could increase, which would reduce GEDP buffer further.<br>
+                    <strong>Current Progress:</strong> M5: 41% (11 of 27 Done/Sign-off), M6: 13% (2 of 16 Done), Upgrades: 0%, Perks: In Progress<br>
+                    <strong>Action:</strong> Assign 1 additional developer to PAS (need 6 total). Descoped PAS-540 (RTB, 9w) and PAS-541 (Codeless Unlock INTL, 9w) to Q4.
                 </div>
 
                 <h3 class="section-subtitle">Capacity Breakdown</h3>
@@ -1174,242 +1259,316 @@
                     <tbody>
                         <tr>
                             <td><strong>M5 (TMG-609)</strong></td>
-                            <td>20 remaining</td>
-                            <td>~156w</td>
-                            <td>50%</td>
-                            <td><span class="badge badge-warning">31% of 29 complete (9 Done/Sign-off)</span></td>
+                            <td>16 remaining</td>
+                            <td>~23w</td>
+                            <td>14%</td>
+                            <td><span class="badge badge-warning">80% of stories complete (12 of 27 epics Done/Sign-off)</span></td>
                         </tr>
                         <tr>
                             <td><strong>M6 (TMG-610)</strong></td>
-                            <td>15 remaining</td>
-                            <td>~64w</td>
-                            <td>21%</td>
-                            <td><span class="badge badge-danger">12% of 17 complete (2 Done)</span></td>
+                            <td>14 remaining</td>
+                            <td>~72w</td>
+                            <td>44%</td>
+                            <td><span class="badge badge-danger">13% of 16 complete (2 Done)</span></td>
                         </tr>
                         <tr>
                             <td><strong>Upgrades (3 epics)</strong></td>
                             <td>3</td>
-                            <td>35w</td>
-                            <td>11%</td>
+                            <td>22w</td>
+                            <td>14%</td>
                             <td><span class="badge badge-danger">0% complete</span></td>
                         </tr>
                         <tr>
                             <td><strong>Ticket Perks (TMG-2895)</strong></td>
                             <td>2</td>
-                            <td>34w</td>
-                            <td>11%</td>
-                            <td><span class="badge badge-danger">0% complete</span></td>
+                            <td>21w</td>
+                            <td>13%</td>
+                            <td><span class="badge badge-warning">In Progress</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>PAS-26 (Dependencies)</strong></td>
+                            <td>1</td>
+                            <td>15w</td>
+                            <td>9%</td>
+                            <td><span class="badge badge-info">In Q3 Scope</span></td>
+                        </tr>
+                        <tr style="background: rgba(229, 62, 62, 0.05); font-style: italic;">
+                            <td><strong>Descoped to Q4</strong></td>
+                            <td>2</td>
+                            <td>18w</td>
+                            <td>-</td>
+                            <td><span class="badge badge-danger">PAS-540 (9w) + PAS-541 (9w)</span></td>
                         </tr>
                         <tr style="font-weight: bold; background: var(--bg-dark);">
-                            <td><strong>TOTAL REMAINING</strong></td>
-                            <td>40 epics</td>
-                            <td>~311w</td>
+                            <td><strong>TOTAL REMAINING (GEDP + PAS)</strong></td>
+                            <td>33 epics</td>
+                            <td>~162w</td>
                             <td>100%</td>
-                            <td><span class="badge badge-danger">Available: 220.5w</span></td>
+                            <td><span class="badge badge-success">Both teams within capacity ✅ (GEDP: 12 devs, PAS: 6 devs)</span></td>
                         </tr>
                     </tbody>
                 </table>
 
-                <h3 class="section-subtitle">Time & Resource Analysis</h3>
+                <h3 class="section-subtitle">Time & Resource Analysis (By Team)</h3>
                 <table>
                     <thead>
                         <tr>
                             <th>Metric</th>
-                            <th>Value</th>
-                            <th>Notes</th>
+                            <th>GEDP (12 devs)</th>
+                            <th>PAS (current 5 devs)</th>
+                            <th>Combined (17 devs)</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Today's Date</td>
-                            <td>June 18, 2026</td>
-                            <td>—</td>
-                        </tr>
-                        <tr>
-                            <td>Target Deadline</td>
-                            <td>September 1, 2026</td>
-                            <td>75 days remaining</td>
-                        </tr>
-                        <tr>
                             <td>Weeks Available</td>
-                            <td>10.5 weeks</td>
-                            <td>June 18 - Sept 1</td>
-                        </tr>
-                        <tr>
-                            <td>Current Team Size</td>
-                            <td>21 developers</td>
-                            <td>Per user input</td>
+                            <td>13.9 weeks</td>
+                            <td>13.9 weeks</td>
+                            <td>13.9 weeks</td>
                         </tr>
                         <tr>
                             <td>Available Capacity</td>
-                            <td>220.5 eng weeks</td>
-                            <td>21 devs × 10.5 weeks</td>
+                            <td>166.8 eng weeks</td>
+                            <td>83.4 eng weeks</td>
+                            <td>250.2 eng weeks</td>
                         </tr>
                         <tr>
-                            <td>Estimated Remaining Work</td>
-                            <td>~311 eng weeks</td>
-                            <td>40 incomplete epics (excludes 11 complete)</td>
+                            <td>Remaining Work</td>
+                            <td>~84 eng weeks (25 epics)</td>
+                            <td>~78 eng weeks (10 epics)</td>
+                            <td>~162 eng weeks (33 epics)</td>
                         </tr>
-                        <tr style="background: rgba(229, 62, 62, 0.1); font-weight: bold;">
-                            <td>Capacity Gap</td>
-                            <td style="color: var(--danger);">-91 weeks</td>
-                            <td style="color: var(--danger);"><strong>41% OVERCOMMITTED</strong></td>
+                        <tr style="background: rgba(56, 161, 105, 0.1); font-weight: bold;">
+                            <td>Capacity Gap/Buffer</td>
+                            <td style="color: var(--success);"><strong>+82.8 weeks (50% buffer)</strong></td>
+                            <td style="color: var(--success);"><strong>+5.4 weeks buffer</strong></td>
+                            <td style="color: var(--success);"><strong>Both teams land by Sept 30 ✅</strong></td>
                         </tr>
                         <tr>
                             <td>Required Team Size</td>
-                            <td>~30 developers</td>
-                            <td>311 ÷ 10.5 ≈ 30 devs</td>
+                            <td>~6 developers</td>
+                            <td>~5.6 developers (currently 5, planning 6)</td>
+                            <td>~11.6 developers (currently 18)</td>
                         </tr>
-                        <tr>
-                            <td>Team Shortfall</td>
-                            <td>9 developers</td>
-                            <td>Need to increase team by 43%</td>
+                        <tr style="background: rgba(56, 161, 105, 0.05);">
+                            <td>Team Surplus</td>
+                            <td style="color: var(--success);">6 devs surplus</td>
+                            <td style="color: var(--success);">0.4 devs surplus</td>
+                            <td style="color: var(--success);">6.4 combined</td>
                         </tr>
                     </tbody>
                 </table>
 
-                <h3 class="section-subtitle">🎯 Scenarios to Hit September 1 Deadline</h3>
+                <h3 class="section-subtitle">PAS Work Breakdown (78 weeks across 10 epics)</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Epic</th>
+                            <th>Eng Weeks</th>
+                            <th>Milestone</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><a href="https://jira.livenation.com/browse/PAS-7" target="_blank" class="epic-key">PAS-7</a> Backend Ticket Perks</td>
+                            <td><strong>9.0w</strong></td>
+                            <td>Ticket Perks</td>
+                            <td><span class="badge badge-warning">In Progress</span></td>
+                        </tr>
+                        <tr>
+                            <td><a href="https://jira.livenation.com/browse/PAS-34" target="_blank" class="epic-key">PAS-34</a> Landing State Solution</td>
+                            <td><strong>19.0w</strong></td>
+                            <td>M5</td>
+                            <td><span class="badge badge-warning">In Progress</span></td>
+                        </tr>
+                        <tr>
+                            <td><a href="https://jira.livenation.com/browse/PAS-1" target="_blank" class="epic-key">PAS-1</a> Upgrades Backend</td>
+                            <td><strong>5.0w</strong></td>
+                            <td>Upgrades</td>
+                            <td><span class="badge badge-warning">In Progress</span></td>
+                        </tr>
+                        <tr>
+                            <td><a href="https://jira.livenation.com/browse/PAS-4" target="_blank" class="epic-key">PAS-4</a> M5 Backend Support</td>
+                            <td><strong>16.0w</strong></td>
+                            <td>M5</td>
+                            <td><span class="badge badge-warning">In Progress</span></td>
+                        </tr>
+                        <tr>
+                            <td><a href="https://jira.livenation.com/browse/PAS-18" target="_blank" class="epic-key">PAS-18</a> M6 Backend Support</td>
+                            <td><strong>5.0w</strong></td>
+                            <td>M6</td>
+                            <td><span class="badge badge-info">Ready for Refinement</span></td>
+                        </tr>
+                        <tr>
+                            <td><a href="https://jira.livenation.com/browse/PAS-444" target="_blank" class="epic-key">PAS-444</a> Abuse Protection (Umbrella)</td>
+                            <td><strong>9.0w</strong></td>
+                            <td>M6</td>
+                            <td><span class="badge badge-info">Ready for Dev</span></td>
+                        </tr>
+                        <tr>
+                            <td><a href="https://jira.livenation.com/browse/PAS-638" target="_blank" class="epic-key">PAS-638</a> EU-West Region</td>
+                            <td><strong>5.0w</strong></td>
+                            <td>M6</td>
+                            <td><span class="badge badge-info">In Design</span></td>
+                        </tr>
+                        <tr>
+                            <td><a href="https://jira.livenation.com/browse/PAS-624" target="_blank" class="epic-key">PAS-624</a> Resiliency Phase 2</td>
+                            <td><strong>15.0w</strong></td>
+                            <td>M6</td>
+                            <td><span class="badge badge-info">Ready for Dev</span></td>
+                        </tr>
+                        <tr>
+                            <td><a href="https://jira.livenation.com/browse/PAS-759" target="_blank" class="epic-key">PAS-759</a> Availability Flapping</td>
+                            <td><strong>5.0w</strong></td>
+                            <td>M6</td>
+                            <td><span class="badge badge-warning">In Progress</span></td>
+                        </tr>
+                        <tr>
+                            <td><a href="https://jira.livenation.com/browse/PAS-777" target="_blank" class="epic-key">PAS-777</a> Canada Tax Compliance (Backend)</td>
+                            <td><strong>5.0w</strong></td>
+                            <td>M6</td>
+                            <td><span class="badge badge-info">Backlog</span></td>
+                        </tr>
+                        <tr style="font-weight: bold; background: rgba(56, 161, 105, 0.1);">
+                            <td><strong>TOTAL PAS (In Q3 Scope)</strong></td>
+                            <td><strong>78w</strong></td>
+                            <td colspan="2"><strong style="color: var(--success);">Available: 83.4w | Buffer: +5.4w ✅ (6 devs) — lands ~Sept 26</strong></td>
+                        </tr>
+                        <tr style="background: var(--bg-dark); font-style: italic;">
+                            <td colspan="4"><strong>Descoped to Q4:</strong> PAS-540 (RTB Tickets, 9w) + PAS-541 (Codeless Unlock INTL, 9w) = 18w total</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3 class="section-subtitle">GEDP Work Breakdown (~84 weeks across 25 epics)</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Milestone</th>
+                            <th>Epics</th>
+                            <th>Est. Weeks</th>
+                            <th>Key Epics</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>M5 (GEDP only)</td>
+                            <td>14 remaining</td>
+                            <td>~16w</td>
+                            <td>80% of M5 stories complete - GEDP-7833 (~5w left), GEDP-7541 (~2.4w left), GEDP-6779 (~1.8w left), etc.</td>
+                        </tr>
+                        <tr>
+                            <td>M6 (GEDP only)</td>
+                            <td>8 remaining</td>
+                            <td>~37w</td>
+                            <td>GEDP-7881 (12w), GEDP-8155 (6w), GEDP-8183 (6w), GEDP-5282 (4w), GEDP-5290 (4w), GEDP-9091 (3w), GEDP-8156 (2w), GEDP-9109 (TBD)</td>
+                        </tr>
+                        <tr>
+                            <td>M6 (PAS only)</td>
+                            <td>5 remaining</td>
+                            <td>~39w</td>
+                            <td>PAS-18 (5w), PAS-444 (9w), PAS-624 (15w), PAS-638 (5w), PAS-777 (5w)</td>
+                        </tr>
+                        <tr>
+                            <td>Upgrades (GEDP)</td>
+                            <td>2</td>
+                            <td>17w</td>
+                            <td>GEDP-8881 (8w), GEDP-5306 (9w)</td>
+                        </tr>
+                        <tr>
+                            <td>Ticket Perks (GEDP)</td>
+                            <td>1</td>
+                            <td>12w</td>
+                            <td>GEDP-7536 (12w)</td>
+                        </tr>
+                        <tr style="font-weight: bold; background: rgba(72, 187, 120, 0.1);">
+                            <td><strong>TOTAL GEDP</strong></td>
+                            <td><strong>25 epics</strong></td>
+                            <td><strong>~84w</strong></td>
+                            <td><strong style="color: var(--success);">Available: 166.8w | Buffer: +82.8w</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3 class="section-subtitle">✅ September 30 Deadline: Both Teams Within Capacity</h3>
 
                 <div class="milestone-card">
                     <div class="milestone-header">
-                        <div class="milestone-title">Option A: Aggressive Descoping (Recommended)</div>
-                        <span class="badge badge-warning">Feasible</span>
+                        <div class="milestone-title">Current Plan: Ship All Core Scope — Both Teams Land by Sept 30</div>
+                        <span class="badge badge-success">On Track</span>
                     </div>
-                    <p><strong>Strategy:</strong> Reduce scope by ~29% (91 weeks) to fit within 220.5 weeks available capacity</p>
-                    <h4 style="margin-top: 1rem; margin-bottom: 0.5rem;">Descope Recommendations:</h4>
+                    <p><strong>Strategy:</strong> GEDP fits comfortably. PAS with 6 devs has 5.4w buffer after descoping PAS-540 and PAS-541 to Q4.</p>
                     <table style="margin-top: 0.5rem;">
                         <thead>
                             <tr>
-                                <th>What to Descope</th>
-                                <th>Savings</th>
-                                <th>Impact</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Defer all Ticket Perks to Q4 (GEDP-7536, PAS-7)</td>
-                                <td>34 weeks</td>
-                                <td>Low - can ship in Q4</td>
-                            </tr>
-                            <tr>
-                                <td>Defer Upgrades Phase 2 (GEDP-5306)</td>
-                                <td>9 weeks</td>
-                                <td>Low - Phase 1 sufficient</td>
-                            </tr>
-                            <tr>
-                                <td>Defer M5 Sponsorship (GEDP-8217, GEDP-8370, GEDP-6779)</td>
-                                <td>32 weeks</td>
-                                <td>Medium - check contracts</td>
-                            </tr>
-                            <tr>
-                                <td>Defer 20% of M6 epics to Q4 (~3 of 15 remaining)</td>
-                                <td>~16 weeks</td>
-                                <td>Low - ship core sports MVP</td>
-                            </tr>
-                            <tr style="font-weight: bold; background: var(--bg-dark);">
-                                <td><strong>TOTAL SAVINGS</strong></td>
-                                <td><strong>~91 weeks</strong></td>
-                                <td><strong>Achievable by 9/1</strong></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="milestone-card">
-                    <div class="milestone-header">
-                        <div class="milestone-title">Option B: Double the Team</div>
-                        <span class="badge badge-danger">High Risk</span>
-                    </div>
-                    <p><strong>Strategy:</strong> Add 9 more developers (30 total) to absorb 311 weeks of work in 10.5 weeks</p>
-                    <ul class="recommendation-list">
-                        <li><strong>Cost:</strong> Expensive - 9 additional full-time engineers</li>
-                        <li><strong>Onboarding Risk:</strong> New engineers need 2-3 weeks to ramp up on codebase</li>
-                        <li><strong>Coordination Overhead:</strong> 43% team increase adds communication complexity</li>
-                        <li><strong>Availability:</strong> Can we hire/contract 9 engineers immediately?</li>
-                        <li><strong>Recommendation:</strong> ⚠️ <strong>RISKY</strong> - Expensive and onboarding will reduce effective capacity</li>
-                    </ul>
-                </div>
-
-                <div class="milestone-card">
-                    <div class="milestone-header">
-                        <div class="milestone-title">Option C: Extend Deadline</div>
-                        <span class="badge badge-warning">Feasible</span>
-                    </div>
-                    <p><strong>Strategy:</strong> Push deadline by 4-5 weeks to allow current team to complete all remaining work</p>
-                    <table style="margin-top: 0.5rem;">
-                        <thead>
-                            <tr>
-                                <th>Scenario</th>
-                                <th>New Deadline</th>
-                                <th>Total Weeks</th>
+                                <th>Team</th>
+                                <th>Work</th>
                                 <th>Capacity</th>
-                                <th>Feasibility</th>
+                                <th>Gap/Buffer</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Extend by 4 weeks</td>
-                                <td>September 29, 2026</td>
-                                <td>14.5 weeks</td>
-                                <td>304.5 eng weeks</td>
-                                <td><span class="badge badge-warning">⚠️ Tight - 98% utilization</span></td>
+                                <td><strong>GEDP (12 devs)</strong></td>
+                                <td>84w</td>
+                                <td>166.8w</td>
+                                <td style="color: var(--success);"><strong>+82.8w (50%)</strong></td>
                             </tr>
-                            <tr>
-                                <td>Extend by 5 weeks</td>
-                                <td>October 6, 2026</td>
-                                <td>15.5 weeks</td>
-                                <td>325.5 eng weeks</td>
-                                <td><span class="badge badge-success">✅ Comfortable - 95% utilization</span></td>
+                            <tr style="background: rgba(56, 161, 105, 0.1);">
+                                <td><strong>PAS (6 devs) — WITH +1 DEV + DESCOPE PAS-540 & PAS-541 TO Q4</strong></td>
+                                <td>78w</td>
+                                <td>83.4w</td>
+                                <td style="color: var(--success);"><strong>+5.4w — lands ~Sept 26 ✅</strong></td>
                             </tr>
                         </tbody>
                     </table>
+                    <p style="margin-top: 1rem;"><strong>What changed:</strong> Descoped PAS-540 (RTB, 9w) and PAS-541 (Codeless Unlock INTL, 9w) to Q4 2026. PAS-26 (Dependencies, 15w) remains in Q3. Net PAS work: 96w → 78w (-18w). PAS team size: 6 developers. With 6 devs, PAS lands ~September 26 (4 days early).</p>
+                    <p style="margin-top: 0.5rem;"><strong>⚠️ Estimation confidence for M6 epics is ~50%.</strong> Due to tight deadlines, teams have not stopped development for detailed story pointing on unstarted stories. Actual effort may exceed current estimates.</p>
+                </div>
+
+                <div class="milestone-card">
+                    <div class="milestone-header">
+                        <div class="milestone-title">Key Risks</div>
+                        <span class="badge badge-warning">Watch List</span>
+                    </div>
                     <ul class="recommendation-list">
-                        <li><strong>Pros:</strong> No descoping needed, all features ship, team stays intact</li>
-                        <li><strong>Cons:</strong> Delays business value, may miss contractual obligations</li>
-                        <li><strong>Recommendation:</strong> ✅ <strong>FEASIBLE</strong> if business can accept delay</li>
+                        <li><strong>Both teams within capacity.</strong> PAS-540 (RTB, 9w) and PAS-541 (Codeless Unlock INTL, 9w) descoped to Q4. PAS lands ~September 26 (4 days early) with 6 devs.</li>
+                        <li><strong>PAS-26 (Dependencies, 15w) opportunity:</strong> This work aligns with RAS Resiliency that Charles and Emmanuel are focused on. If Lovee agrees to prioritize it in their team, PAS-26 can move out of PAS scope. Would reduce PAS from 78w to 63w, creating 20.4w buffer.</li>
+                        <li><strong>M6 Estimation Confidence: ~50%.</strong> Haven't stopped dev for detailed story pointing yet. GEDP buffer (82.8w) could shrink once M6 epics are fully estimated.</li>
+                        <li><strong>GEDP-7881 (Ticket Packages Phase 2, 12w):</strong> Jumped from 2w to 12w — consumed 10w of GEDP buffer in one update.</li>
+                        <li><strong>GEDP-9109 (Performance Improvements):</strong> No engineering weeks estimate yet. Once estimated, this will reduce GEDP buffer further.</li>
+                        <li><strong>GEDP-7833 (M5 Event Launch, 25w):</strong> Largest single GEDP epic. Any growth erodes buffer significantly.</li>
+                        <li><strong>PAS-624 (Resiliency Phase 2, 15w):</strong> Tripled from 5w. Now the largest PAS epic in Q3 scope.</li>
                     </ul>
                 </div>
 
                 <div class="milestone-card">
                     <div class="milestone-header">
-                        <div class="milestone-title">Option D: Hybrid (Descope + Extend)</div>
-                        <span class="badge badge-success">Recommended</span>
+                        <div class="milestone-title">Option: Move PAS-26 to RAS Resiliency Team</div>
+                        <span class="badge badge-success">Opportunity</span>
                     </div>
-                    <p><strong>Strategy:</strong> Descope 14% of work (~43 weeks) AND extend deadline by 2 weeks (Sept 15)</p>
-                    <table style="margin-top: 0.5rem;">
-                        <thead>
-                            <tr>
-                                <th>Metric</th>
-                                <th>Value</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Descoped Work</td>
-                                <td>~43 weeks (Ticket Perks 34w + Upgrades Phase 2 9w)</td>
-                            </tr>
-                            <tr>
-                                <td>Remaining Work</td>
-                                <td>~268 weeks (311w - 43w)</td>
-                            </tr>
-                            <tr>
-                                <td>New Deadline</td>
-                                <td>September 15, 2026 (12.5 weeks total)</td>
-                            </tr>
-                            <tr>
-                                <td>Available Capacity</td>
-                                <td>262.5 eng weeks (21 devs × 12.5 weeks)</td>
-                            </tr>
-                            <tr style="font-weight: bold; background: rgba(56, 161, 105, 0.1);">
-                                <td>Capacity Match</td>
-                                <td style="color: var(--success);"><strong>✅ NEAR PERFECT FIT (98% utilization)</strong></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <p><strong>Strategy:</strong> PAS-26 (Dependency Modernization, 15w) aligns with RAS Resiliency work that Charles and Emmanuel are focused on. If Lovee agrees to prioritize this in their team's deliveries, it can be removed from PAS Q3 scope.</p>
                     <ul class="recommendation-list">
-                        <li><strong>Pros:</strong> Balanced approach, delivers most value, only 2-week delay, minimal descoping</li>
-                        <li><strong>Cons:</strong> Defers Ticket Perks and Upgrades Phase 2 to Q4</li>
-                        <li><strong>Recommendation:</strong> ✅ <strong>BEST OPTION</strong> - Ship M5 + Upgrades Phase 1 + M6 by Sept 15</li>
+                        <li><strong>Impact:</strong> PAS work reduces from 78w to 63w, creating 20.4w buffer with 6 devs</li>
+                        <li><strong>Timeline:</strong> PAS would land even earlier than September 26</li>
+                        <li><strong>Alignment:</strong> Work directly supports RAS Resiliency goals</li>
+                        <li><strong>Action Required:</strong> Get Lovee's agreement that this will be prioritized by the RAS Resiliency team</li>
+                        <li><strong>DRI:</strong> Kate Kasperski / Lovee</li>
+                    </ul>
+                </div>
+
+                <div class="milestone-card">
+                    <div class="milestone-header">
+                        <div class="milestone-title">If GEDP-9109 Comes In Large (>30w)</div>
+                        <span class="badge badge-warning">Contingency</span>
+                    </div>
+                    <p><strong>Strategy:</strong> If GEDP-9109 (Performance Improvements) is estimated at >30w, GEDP will also exceed capacity. Pull additional developers from Optimize Pod.</p>
+                    <ul class="recommendation-list">
+                        <li><strong>Source:</strong> Optimize Pod has available capacity that can be redeployed</li>
+                        <li><strong>Constraint:</strong> Optimize Pod owns Canada Compliance and CR/QA for Sponsorship — those commitments must remain staffed</li>
+                        <li><strong>Impact:</strong> Each developer pulled adds ~13.9w capacity through 9/30</li>
+                        <li><strong>Note:</strong> Descoping is not an option — all committed scope ships by 9/30</li>
                     </ul>
                 </div>
             </div>
@@ -1420,133 +1579,155 @@
             <div class="section">
                 <h2 class="section-title">💡 Immediate Actions Required</h2>
 
-                <div class="alert alert-danger" style="margin-bottom: 1.5rem; background: rgba(229, 62, 62, 0.15);">
-                    <strong>🚨 CRITICAL DECISION REQUIRED BY JUNE 20, 2026</strong><br>
-                    Leadership must choose one of the 4 options below within 2 days. With 40 incomplete epics requiring ~311 weeks of work and only 220.5 weeks available, we are 41% over capacity.<br><br>
-                    <strong>📊 Current Progress:</strong> M5: 31% complete (9 of 29 Done/Sign-off), M6: 12% complete (2 of 17 Done), Upgrades: 0%, Ticket Perks: 0%
+                <div class="alert alert-success" style="margin-bottom: 1.5rem; background: rgba(56, 161, 105, 0.15);">
+                    <strong>✅ BOTH TEAMS WITHIN CAPACITY — ON TRACK FOR SEPT 30</strong><br>
+                    GEDP has massive buffer. PAS with 6 devs has 5.4w buffer after descoping PAS-540 and PAS-541 to Q4.<br><br>
+                    <strong>✅ PAS (6 devs):</strong> 78w work / 83.4w capacity — 5.4w buffer (lands ~Sept 26)<br>
+                    <strong>✅ GEDP (12 devs):</strong> 84w work / 166.8w capacity — 82.8w buffer (50%)<br><br>
+                    <strong>📊 Current Progress:</strong> M5: 41% complete (11 of 27 Done/Sign-off), M6: 14% complete (2 of 14 Done), Upgrades: 0%, Perks: In Progress<br>
+                    <strong>🎯 Focus:</strong> Assign 1 additional developer to PAS (need 6 total). Get GEDP-9109 estimated.<br>
+                    <strong>Note:</strong> Analysis based on GEDP and PAS epics only (excludes GEDP-5305). Descoped PAS-540 (RTB, 9w) and PAS-541 (Codeless Unlock INTL, 9w) to Q4.
                 </div>
 
                 <ul class="recommendation-list">
                     <li>
-                        <strong>🚨 PRIORITY 1: Emergency Prioritization Session (By June 20)</strong><br>
-                        <strong>Participants:</strong> Kate Kasperski, Sean Vergara, Ashley Trone, Charles Demetriades, Engineering Leads<br>
-                        <strong>Agenda:</strong> Choose Option A, B, C, or D from Feasibility Analysis tab<br>
-                        <strong>Deliverable:</strong> Signed-off commitment list with approved epics for 9/1 (or new deadline)<br>
-                        <strong>DRI:</strong> Kate Kasperski
+                        <strong>✅ PRIORITY 1: PAS Lands ~Sept 26 with 6 Devs (4 days early)</strong><br>
+                        <strong>Status:</strong> PAS already committing 6 developers. Descoped PAS-540 (RTB, 9w) and PAS-541 (Codeless Unlock INTL, 9w) to Q4 2026.<br>
+                        <strong>Impact:</strong> With 6 devs (83.4w capacity) and 78w work, PAS lands ~September 26 (4 days early, 5.4w buffer)<br>
+                        <strong>Descoped Work:</strong> 18 weeks total moved to Q4 — PAS-540 (operational work) and PAS-541 (Codeless Unlock INTL)<br>
+                        <strong>Status:</strong> On track for Sept 30 delivery<br>
+                        <strong>DRI:</strong> Kate Kasperski / Engineering Management
                     </li>
                     <li>
-                        <strong>✅ PRIORITY 2: If Option A (Descoping) - Identify Descope Candidates (By June 22)</strong><br>
-                        <strong>Criteria:</strong> Not contractually required, low completion %, can defer to Q4<br>
-                        <strong>Top Descope Targets (~91 weeks):</strong><br>
-                        • Ticket Perks (GEDP-7536: 12w, PAS-7: 22w) = 34 weeks<br>
-                        • Upgrades Phase 2 (GEDP-5306: 9w) = 9 weeks<br>
-                        • M5 Sponsorship (GEDP-8217: 15w, GEDP-8370: 8w, GEDP-6779: 9w) = 32 weeks<br>
-                        • 20% of M6 epics (PAS-638: 5.5w, TMSPON-29809, backlog items) = ~16 weeks<br>
-                        <strong>Total:</strong> ~91 weeks descoped → fits in 220.5 weeks available<br>
-                        <strong>DRI:</strong> Product team (Kate, Sean, Ashley)
+                        <strong>⚡ PRIORITY 2: Move PAS-26 (Dependency Modernization, 15w) to RAS Resiliency Team</strong><br>
+                        <strong>Opportunity:</strong> PAS-26 aligns with RAS Resiliency work that Charles and Emmanuel are focused on. If moved to their team, PAS reduces from 78w to 63w.<br>
+                        <strong>Action:</strong> Get Lovee's agreement that PAS-26 will be prioritized by the RAS Resiliency team instead of PAS<br>
+                        <strong>Impact:</strong> PAS would have 20.4w buffer with 6 devs and land even earlier than September 26<br>
+                        <strong>DRI:</strong> Kate Kasperski / Lovee
                     </li>
                     <li>
-                        <strong>✅ PRIORITY 3: If Option B (Add Resources) - Hiring Plan (By June 22)</strong><br>
-                        <strong>Action:</strong> Identify 9 contract engineers or FTE transfers<br>
-                        <strong>Budget:</strong> ~$180k-$270k/month for 3 months ($0.5M-$0.8M total)<br>
-                        <strong>Onboarding:</strong> Plan 2-3 week ramp-up for all new engineers<br>
-                        <strong>DRI:</strong> Charles Demetriades + Engineering Management
-                    </li>
-                    <li>
-                        <strong>✅ PRIORITY 4: If Option C or D (Extend Deadline) - Stakeholder Communication (By June 23)</strong><br>
-                        <strong>Action:</strong> Notify all stakeholders of new deadline (Sept 15 or Oct 6)<br>
-                        <strong>Impacted:</strong> Live Nation, sports leagues, clients with September commitments<br>
-                        <strong>DRI:</strong> Kate Kasperski + Business stakeholders
-                    </li>
-                    <li>
-                        <strong>⚡ PRIORITY 5: Freeze New Epic Additions (Effective Immediately)</strong><br>
-                        <strong>Rule:</strong> No new epics added to M5/M6/Upgrades/Perks without removing equal effort<br>
-                        <strong>Rationale:</strong> Already 41% over capacity - adding more guarantees failure<br>
-                        <strong>DRI:</strong> Kate Kasperski (gatekeeper)
-                    </li>
-                    <li>
-                        <strong>📊 PRIORITY 6: Get Missing Engineering Weeks Estimates (By June 20)</strong><br>
-                        <strong>Epics Missing Estimates:</strong><br>
-                        • PAS-18 (M6 Backend Support)<br>
-                        • GEDP-9091 (Sponsorship M6 Misc)<br>
-                        • GEDP-9109 (Performance Improvements)<br>
-                        • TMSPON-29809 (M6 Sponsorship Support)<br>
-                        <strong>Action:</strong> Tech leads provide estimates immediately<br>
-                        <strong>DRI:</strong> Mo Shareef (PAS), Tech Leads (GEDP)
+                        <strong>⚡ PRIORITY 3: Get GEDP-9109 (Performance Improvements) Estimated</strong><br>
+                        <strong>Problem:</strong> GEDP-9109 has no engineering weeks in Jira — this is unaccounted work that reduces GEDP buffer<br>
+                        <strong>Action:</strong> Get engineering estimate from team this week<br>
+                        <strong>Impact:</strong> GEDP has 82.8w buffer, so can absorb significant growth before needing additional devs<br>
+                        <strong>DRI:</strong> Sean Vergara / Engineering Leads
                     </li>
                 </ul>
             </div>
 
             <div class="section">
-                <h2 class="section-title">📅 Recommended Decision: Option D (Hybrid)</h2>
+                <h2 class="section-title">📅 Recommended Plan: Ship Everything (Pull 2 Devs for PAS)</h2>
 
-                <div class="alert alert-info">
-                    <strong>✅ RECOMMENDED: Hybrid Approach (Option D)</strong><br>
-                    <strong>Descope 14% (~43 weeks) + Extend deadline by 2 weeks to September 15, 2026</strong><br><br>
-                    <strong>Delivers:</strong> M5 core features + Upgrades Phase 1 + Full M6<br>
-                    <strong>Defers to Q4:</strong> Ticket Perks (34w), Upgrades Phase 2 (9w)<br>
-                    <strong>Capacity Fit:</strong> 268 weeks work / 262.5 weeks available = ✅ <strong>NEAR PERFECT FIT (98% utilization)</strong><br>
-                    <strong>Business Impact:</strong> Only 2-week delay, delivers all core M5/M6 value
+                <div class="alert alert-success">
+                    <strong>✅ RECOMMENDED PLAN: M5/M6/UPGRADES/PERKS — BOTH TEAMS LAND BY SEPT 30</strong><br><br>
+                    <strong>What Ships:</strong><br>
+                    • M5 Core: All 14 remaining GEDP + 2 PAS epics (Password offers, Smart Queue, Stage Site, Backend, Landing State)<br>
+                    • M6: All 8 GEDP + 5 PAS epics (League Branding, Sports Calendar, Co-Branding, Abuse Messaging, Packages Phase 2, Sponsorship, Event Launch, Performance, Backend, Resiliency Phase 2, EU-West, Availability Flapping, Canada Tax)<br>
+                    • Upgrades: GEDP-8881 (8w) + GEDP-5306 (9w) + PAS-1 (5w)<br>
+                    • Ticket Perks: GEDP-7536 (12w) + PAS-7 (9w)<br>
+                    • Other: PAS-26 (Dependencies, 15w)<br><br>
+                    <strong>Descoped to Q4 2026:</strong><br>
+                    • PAS-540: RTB Tickets (9w) - operational improvements only<br>
+                    • PAS-541: Codeless Unlock INTL (9w) - international markets expansion<br>
+                    • GEDP-5305: Club Site - moved to Q4 2026<br>
+                    • Package work: Some package functionality descoped<br><br>
+                    <strong>Scope Constraints:</strong><br>
+                    • Business will target US teams only until Canada Compliance work is added to Global EDP<br><br>
+                    <strong>Timeline:</strong> GEDP lands ~September 17 (13 days early). PAS lands ~September 26 (4 days early) with 6 developers.<br><br>
+                    <strong>Capacity:</strong> GEDP: +82.8w buffer (50%) ✅ | PAS: +5.4w buffer ✅
                 </div>
 
-                <h3 class="section-subtitle">What Ships by September 15, 2026 (Option D)</h3>
+                <h3 class="section-subtitle">What Ships by September 30 (All Scope)</h3>
                 <table>
                     <thead>
                         <tr>
                             <th>Component</th>
+                            <th>Team</th>
                             <th>Epics</th>
-                            <th>What Ships</th>
+                            <th>Eng Weeks</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><strong>M5 Core</strong></td>
-                            <td>20 remaining epics</td>
-                            <td>Password offers, Smart Queue, Auto Routing, Stage Site, Backend, DID Support, Listings</td>
+                            <td><strong>M5 (GEDP)</strong></td>
+                            <td>GEDP</td>
+                            <td>14 remaining epics</td>
+                            <td>~16w (80% complete)</td>
                         </tr>
                         <tr>
-                            <td><strong>M6 Full</strong></td>
-                            <td>15 remaining epics</td>
-                            <td>League Branding, Sports Calendar, Club Site, Co-Branding, Abuse Messaging, Event Launch, Packages</td>
+                            <td><strong>M5 (PAS)</strong></td>
+                            <td>PAS</td>
+                            <td>2 epics (PAS-4, PAS-34)</td>
+                            <td>~7w (80% complete)</td>
                         </tr>
                         <tr>
-                            <td><strong>Upgrades Phase 1</strong></td>
-                            <td>2 epics</td>
-                            <td>GEDP-8881 (Frontend), PAS-1 (Backend) - Current UX only</td>
+                            <td><strong>M6 (GEDP)</strong></td>
+                            <td>GEDP</td>
+                            <td>7 remaining epics</td>
+                            <td>~27w</td>
+                        </tr>
+                        <tr>
+                            <td><strong>M6 (PAS)</strong></td>
+                            <td>PAS</td>
+                            <td>5 epics (PAS-18, PAS-444, PAS-624, PAS-638, PAS-759, PAS-777)</td>
+                            <td>44w</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Upgrades (GEDP)</strong></td>
+                            <td>GEDP</td>
+                            <td>2 epics (GEDP-8881, GEDP-5306)</td>
+                            <td>17w</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Upgrades Backend</strong></td>
+                            <td>PAS</td>
+                            <td>1 epic (PAS-1)</td>
+                            <td>5w</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ticket Perks (GEDP)</strong></td>
+                            <td>GEDP</td>
+                            <td>1 epic (GEDP-7536)</td>
+                            <td>12w</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ticket Perks Backend</strong></td>
+                            <td>PAS</td>
+                            <td>1 epic (PAS-7)</td>
+                            <td>9w</td>
+                        </tr>
+                        <tr style="background: rgba(229, 62, 62, 0.05); font-style: italic;">
+                            <td><strong>Descoped to Q4</strong></td>
+                            <td>PAS</td>
+                            <td>2 epics (PAS-540, PAS-541)</td>
+                            <td>18w</td>
+                        </tr>
+                        <tr style="font-weight: bold; background: rgba(56, 161, 105, 0.1);">
+                            <td><strong>TOTAL SHIPS</strong></td>
+                            <td></td>
+                            <td><strong>33 epics</strong></td>
+                            <td><strong>GEDP: 84w / 166.8w ✅ | PAS: 78w / 83.4w (with +1 dev) ✅ — both land by Sept 30</strong></td>
                         </tr>
                     </tbody>
                 </table>
 
-                <h3 class="section-subtitle">What Defers to Q4 2026 (Option D)</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Component</th>
-                            <th>Epics</th>
-                            <th>What Defers</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Ticket Perks</strong></td>
-                            <td>2 epics</td>
-                            <td>GEDP-7536, PAS-7 (34 weeks total)</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Upgrades Phase 2</strong></td>
-                            <td>1 epic</td>
-                            <td>GEDP-5306 - Flat Fee UX (9 weeks)</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <h3 class="section-subtitle">📊 Capacity Summary (Per Team)</h3>
+                <ul class="recommendation-list">
+                    <li><strong>PAS (6 devs):</strong> 78w work / 83.4w capacity = ✅ WITHIN CAPACITY (+5.4w buffer) — lands ~September 26</li>
+                    <li><strong>PAS descoped:</strong> PAS-540 (RTB, 9w) and PAS-541 (Codeless Unlock INTL, 9w) moved to Q4 2026. PAS-26 (Dependencies, 15w) remains in Q3.</li>
+                    <li><strong>GEDP (12 devs):</strong> 84w work / 166.8w capacity = ✅ WITHIN CAPACITY (82.8w buffer, 50%)</li>
+                    <li><strong>Key Actions:</strong> (1) Assign 1 additional developer to PAS (need 6 total); (2) Get GEDP-9109 estimated; (3) Consider moving PAS-26 to RAS Resiliency team</li>
+                    <li><strong>Note:</strong> All customer-facing M5/M6/Upgrades/Perks commitments remain in Q3. Both teams land by Sept 30.</li>
+                </ul>
             </div>
         </div>
 
         <footer>
             <p>Dashboard generated by <a href="https://claude.com/claude-code" class="footer-link" target="_blank">Claude Code</a> for Q3 2026 Commitments</p>
-            <p style="margin-top: 0.5rem;"><strong>Scope:</strong> M5 (TMG-609) + M6 (TMG-610) + Upgrades (GEDP-8881, GEDP-5306, PAS-1) + Ticket Perks (GEDP-7536, PAS-7)</p>
-            <p style="margin-top: 0.5rem;">Last updated: June 18, 2026 | Owner: Kate Kasperski</p>
-            <p style="margin-top: 0.5rem;"><strong>Status:</strong> 40 incomplete epics (51 total - 11 complete) | 220.5 weeks available | ~311 weeks required | <strong style="color: var(--danger);">41% OVERCOMMITTED</strong></p>
+            <p style="margin-top: 0.5rem;"><strong>Scope:</strong> GEDP + PAS epics only - M5 (TMG-609) + M6 (TMG-610) + Upgrades + Ticket Perks + Codeless Unlock</p>
+            <p style="margin-top: 0.5rem;">Last updated: June 25, 2026 | Owner: Kate Kasperski</p>
+            <p style="margin-top: 0.5rem;"><strong>Status:</strong> 33 incomplete epics | GEDP: 84w / 166.8w (82.8w buffer) ✅ | PAS: 78w / 83.4w (+5.4w buffer) ✅ — needs +1 dev, lands ~Sept 26</p>
+            <p style="margin-top: 0.5rem;"><strong>Excluded:</strong> Non-GEDP/PAS epics (CTHOST-6551, TM1UP-3360, GCO-5716, GDISCO-4436, GEDP-5305, TMSPON-29809) | <strong>Added:</strong> PAS-759 (5w), PAS-444 (9w), PAS-777 (5w) | <strong>Descoped to Q4:</strong> PAS-540 (9w), PAS-541 (9w)</p>
         </footer>
     </div>
 
